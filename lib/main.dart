@@ -11,7 +11,7 @@ class app extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Color(0xFF26C6DA),
+        primaryColor: Colors.blue,
       ),
       home: HomeScreen(),
     );
@@ -25,8 +25,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         // Your content goes here
-        child:Login(),
-        // Home(),
+        child:
+        //Login(),
+        Home(),
       ),
     );
   }

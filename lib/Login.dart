@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
               children: [
                 Text("LOGIN",textScaler: TextScaler.linear(7),),
                 TextField(
-                  decoration: InputDecoration(labelText: "User Name",border: OutlineInputBorder()),
+                  decoration: InputDecoration(labelText: "User Name",border: OutlineInputBorder(),hoverColor: Colors.blue),
                   controller: _userId,
                 ),
                 Padding(

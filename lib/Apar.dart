@@ -8,15 +8,16 @@ class Apar extends StatelessWidget {
     return AppBar(   toolbarHeight: 80,
       actions: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-              IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  print('home button pressed');
-                },
-              ),
-            
+                IconButton( 
+                  hoverColor: Colors.blue,
+                  
+                  icon: Icon(Icons.home),
+                  onPressed: () {
+                    print('home button pressed');
+                  },
+                ),
                IconButton(
                 icon: Icon(Icons.search),
                 onPressed: () {
@@ -29,7 +30,6 @@ class Apar extends StatelessWidget {
                   print('Settings button pressed');
                 },
               ),
-            
           ],
         ),
       ],

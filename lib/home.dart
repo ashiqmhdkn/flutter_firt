@@ -11,16 +11,20 @@ class Home extends StatelessWidget {
         child: SafeArea(
           child: Column( mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-                Center(
-                  child: Text(
-                    "Arif",
-                    style: TextStyle(
-                      color: Colors.green[700],
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+               Container(
+                child:Padding(
+                  padding: EdgeInsets.all(1),
+                  child:Column(
+                    children: [Container(
+                      
+                  ),Container(
+
+                  ),Container(
+
+                  )],
+                  )
+                )
+               ),
               
               Container(width: 555,
               height: 87,
@@ -31,12 +35,4 @@ class Home extends StatelessWidget {
       ),
     );
   }
-}
-
-
-
-void main() {
-  runApp(MaterialApp(
-    home: Home(),
-  ));
 }

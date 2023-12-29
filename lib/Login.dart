@@ -17,34 +17,44 @@ class _LoginState extends State<Login> {
     return Container(
       child: Column(
         children: [
-          Text("LOGIN"),
-          Text("USER NAME"),
-          TextField(
-            decoration: InputDecoration(labelText: "User Name"),
-            controller: _userId,
+          Padding(
+            padding: EdgeInsets.only(right: 50,left: 50),
+            child: Column(
+              children: [
+                Text("LOGIN",textScaler: TextScaler.linear(7),),
+                TextField(
+                  decoration: InputDecoration(labelText: "User Name",border: OutlineInputBorder()),
+                  controller: _userId,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top:8.0),
+                  child: TextField(
+                    decoration: InputDecoration(labelText: "Password",border: OutlineInputBorder()),
+                    obscureText: true,
+                    controller: _password,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        credentials = {
+                          'userName': _userId.text,
+                          'password': _password.text,
+                        };
+                      });
+                      print('Credentials: $credentials');
+                    },
+                    child:Padding( padding:EdgeInsets.all(5),child:Text("SUBMIT"),),
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                Text("Display User Name: ${credentials['userName']}"),
+                Text("Display Password: ${credentials['password']}"),
+              ],
+            ),
           ),
-          Text("Password"),
-          TextField(
-            decoration: InputDecoration(labelText: "Password"),
-            obscureText: true,
-            controller: _password,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                // Update the values when the button is pressed
-                credentials = {
-                  'userName': _userId.text,
-                  'password': _password.text,
-                };
-              });
-              print('Credentials: $credentials');
-            },
-            child: Text("SUBMIT"),
-          ),
-          SizedBox(height: 16.0),
-          Text("Display User Name: ${credentials['userName']}"),
-          Text("Display Password: ${credentials['password']}"),
         ],
       ),
     );

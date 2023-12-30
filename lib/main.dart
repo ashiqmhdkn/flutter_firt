@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firt/Apar.dart';
+import 'package:flutter_firt/search.dart';
 import './home.dart';
 import './Login.dart';
 main(List<String> args) {
@@ -18,16 +20,16 @@ class app extends StatelessWidget {
   }
 }
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
-
+  HomeScreen({Key? key}) : super(key: key); 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SafeArea(
         // Your content goes here
-        child:
+        child:Apar(),
         //Login(),
-        Home(),
+        //Home(),
+       // Search(),
       ),
     );
   }

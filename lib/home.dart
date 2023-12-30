@@ -6,57 +6,53 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SafeArea(
-          child: Column(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                  padding: EdgeInsets.all(1),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          child: Text("video"),
-                          color: Color(0xffa1a1),
-                        ),
+              Container(
+                child: Text("video"),
+              ),
+              Container(
+                child: Text("Graph"),
+              ),
+              Container(
+                color: Color(0xFFD9D9D9),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                        color: Colors.red,
+                      )),
+                      child: Text(
+                        "High Risk High Reward Method",
+                        style: TextStyle(color: Colors.red, fontSize: 21),
                       ),
-                      Expanded(
-                        child: Container(
-                          child: Text("Graph"),
-                          color: Color(0xa1ffa155),
-                        ),
+                    ),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left:8.0,
+                        right: 8.0),
+                        child: Text(
+                          "Medium Risk Reward Method",style: TextStyle(color: Colors.yellow, fontSize: 21),),
                       ),
-                      Expanded(
-                        child: Container(
-                            child: Column(
-                          children: [
-                            Expanded(
-                                child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.red, border: Border.all()),
-                              child: Text("High Risk High Reward Method"),
-                            )),
-                            Expanded(
-                                child: Container(
-                              child: Text("Medium Risk Reward Method"),
-                              decoration: BoxDecoration(
-                                  color: Colors.yellow, border: Border.all()),
-                            )),
-                            Expanded(
-                                child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.green, border: Border.all()),
-                              child: Text("Low Risk Small Reward method"),
-                            )),
-                          ],
-                        )),
-                      )
-                    ],
-                  ),),
+                      decoration: BoxDecoration(
+                           border: Border.all(color: Colors.yellow),),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                           border: Border.all(color: Colors.green,)),
+                      child: Text("Low Risk Small Reward method",style: TextStyle(color: Colors.green, fontSize: 21),),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
-        ),
+        ],
       ),
     );
   }

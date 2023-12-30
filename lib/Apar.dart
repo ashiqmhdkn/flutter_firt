@@ -11,7 +11,7 @@ class Apar extends StatefulWidget {
   @override
   State<Apar> createState() => _AparState();
 }
-int currentPageIndex=0;
+int currentPageIndex=2;
 class _AparState extends State<Apar> {
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class _AparState extends State<Apar> {
           ),
           NavigationDestination(
             label: "goal",
-            icon: Icon(Icons.flag_circle),
+            icon: Icon(Icons.flag_circle,size: 57),
           ),
           NavigationDestination(
             label: "Profile",

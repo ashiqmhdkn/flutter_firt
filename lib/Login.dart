@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key});
@@ -14,48 +15,39 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(right: 50,left: 50),
-            child: Column(
-              children: [
-                Text("LOGIN",textScaler: TextScaler.linear(7),),
-                TextField(
-                  decoration: InputDecoration(labelText: "User Name",border: OutlineInputBorder(),hoverColor: Colors.blue),
-                  controller: _userId,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top:8.0),
-                  child: TextField(
-                    decoration: InputDecoration(labelText: "Password",border: OutlineInputBorder()),
-                    obscureText: true,
-                    controller: _password,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        credentials = {
-                          'userName': _userId.text,
-                          'password': _password.text,
-                        };
-                      });
-                      print('Credentials: $credentials');
-                    },
-                    child:Padding( padding:EdgeInsets.all(5),child:Text("SUBMIT"),),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Text("Display User Name: ${credentials['userName']}"),
-                Text("Display Password: ${credentials['password']}"),
-              ],
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(right: 50,left: 50),
+        child: Column(
+          children: [
+            Text("LOGIN",textScaler: TextScaler.linear(7),),
+            TextField(
+              decoration: InputDecoration(labelText: "User Name",border: OutlineInputBorder(),hoverColor: Colors.blue),
+              controller: _userId,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top:8.0),
+              child: TextField(
+                decoration: InputDecoration(labelText: "Password",border: OutlineInputBorder()),
+                obscureText: true,
+                controller: _password,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child:Padding( padding:EdgeInsets.all(5),child:Text("SUBMIT"), ),
+                onPressed: ()async{
+                  SharedPreferences sp =await SharedPreferences.getInstance();
+                 if(_userId.text=="ashiq"&&_password.text=="123"){ sp.setString("Id",_userId.text.toString() );
+                  sp.setString("Pass", _password.text.toString());
+                  sp.setBool('log', true);
+                  }
+                }
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

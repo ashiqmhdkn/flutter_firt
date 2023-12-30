@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firt/Apar.dart';
-import 'package:flutter_firt/search.dart';
-import './home.dart';
-import './Login.dart';
+import 'package:flutter_firt/flash.dart';
+
 main(List<String> args) {
   runApp(app());
 }
@@ -23,13 +21,9 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key); 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       body: SafeArea(
-        // Your content goes here
-        child:Apar(),
-        //Login(),
-        //Home(),
-       // Search(),
+        child:flash(),
       ),
     );
   }

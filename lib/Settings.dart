@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firt/Login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -68,11 +70,30 @@ class Settings extends StatelessWidget {
             Text("About"),
           ],
         ),
-        Row(
-          children: [
-            Icon(Icons.logout),
-            Text("Logout"),
-          ],
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: Text("Logout"),
+          onTap: () {
+            showDialog(
+              context:context,
+               builder:(cntx) =>AlertDialog(
+                title: Text("Logout"),
+                content: Text("Do you want to Logout ?"),
+               actions: [ElevatedButton(onPressed:  () async{
+                  SharedPreferences sp = await SharedPreferences.getInstance();
+                  sp.setBool('log', false);
+                  sp.setString("Id", "");
+                  sp.setString("Pass", '');
+                  Navigator.pop(cntx);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                },
+                child: Text("LOGOUT"),),
+                ElevatedButton(onPressed:  () {
+                  Navigator.pop( cntx);
+                }, child: Text("Cancel"))],
+              ),
+            );
+          },
         ),
       ],
     ));
